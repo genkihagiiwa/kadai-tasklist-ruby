@@ -1,8 +1,19 @@
 <header>
     <div>
       <ul>
+        <% if logged_in? %>
+          <li><%= link_to 'Users', users_path, class: 'nav-link' %></li>
+          <li>
+            <a><%= current_user.name %></a>
+            <ul>
+              <li><%= link_to 'My profile', user_path(current_user) %></li>
+              <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+            </ul>
+          </li>
+        <% else %>  
         <li><%= link_to 'Signup', signup_path, class: 'nav-link' %></li>
-        <li><a href="#" class="nav-link">Login</a></li>
+        <li><%= link_to 'Login', login_path, class: 'nav-link' %></li>
       </ul>
+      <% end %>
     </div>
 </header>
