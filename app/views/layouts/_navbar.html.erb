@@ -1,9 +1,8 @@
 <header>
       <ul>
         <% if logged_in? %>
-            <h1><%= current_user.name %>さんのTasklist</h1>
+          <h1><%= current_user.name %>さんのTasklist</h1>
             <ul>
-              <li><%= link_to 'Tasklist', root_path %></li>
               <li><%= link_to 'Logout', logout_path, method: :delete %></li>
             </ul>
           </li>
