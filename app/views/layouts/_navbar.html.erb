@@ -1,12 +1,9 @@
 <header>
-    <div>
       <ul>
         <% if logged_in? %>
-          <li><%= link_to 'Users', users_path, class: 'nav-link' %></li>
-          <li>
-            <a><%= current_user.name %></a>
+            <h1><%= current_user.name %>さんのTasklist</h1>
             <ul>
-              <li><%= link_to 'My profile', user_path(current_user) %></li>
+              <li><%= link_to 'Tasklist', root_path %></li>
               <li><%= link_to 'Logout', logout_path, method: :delete %></li>
             </ul>
           </li>
@@ -15,5 +12,4 @@
         <li><%= link_to 'Login', login_path, class: 'nav-link' %></li>
       </ul>
       <% end %>
-    </div>
 </header>
