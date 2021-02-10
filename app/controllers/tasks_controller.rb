@@ -1,14 +1,9 @@
 class TasksController < ApplicationController
   before_action :require_user_logged_in
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:show, :edit, :destroy]
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
   
   def index
-    if logged_in?
       @tasks = current_user.tasks.order(id: :desc).page(params[:page])
-    else
-      redirect_to '/login'
-    end
   end
 
   def show
@@ -56,9 +51,6 @@ class TasksController < ApplicationController
 
   private
   
-  def set_task
-    @tasks = current_user.tasks.order(id: :desc).page(params[:page])
-  end
 
   def task_params
    params.require(:task).permit(:content, :status, :references)
