@@ -10,14 +10,14 @@ class SessionsController < ApplicationController
       redirect_to '/'
     else
       flash.now[:danger] = 'ログインに失敗しました。'
-      render '/toppages/index'
+      render :new
     end
   end
 
   def destroy
     session[:user_id] = nil
     flash[:success] = 'ログアウトしました。'
-    redirect_to '/toppages/index'
+    redirect_to '/login'
   end
 
   private
