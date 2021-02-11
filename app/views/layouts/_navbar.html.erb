@@ -1,14 +1,9 @@
 <header>
-  <ul>
-    <% if logged_in? %>
-      <h1><%= current_user.name %>さんのTasklist</h1>
-        <ul>
-          <li><%= link_to 'Logout', logout_path, method: :delete %></li>
-        </ul>
-        <% else %>  
-        <ul>  
-          <li><%= link_to 'Signup', signup_path %></li>
-          <li><%= link_to 'Login', login_path %></li>
-        </ul>
-    <% end %>
+  <% if logged_in? %>
+    <h1><%= current_user.name %>さんのTasklist</h1>
+    <%= link_to 'Logout', logout_path, method: :delete %>
+  <% else %>  
+    <%= link_to 'Signup', signup_path %>
+    <%= link_to 'Login', login_path%>
+  <% end %>
 </header>
