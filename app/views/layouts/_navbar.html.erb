@@ -1,14 +1,14 @@
 <header>
-      <ul>
-        <% if logged_in? %>
-          <h1><%= current_user.name %>さんのTasklist</h1>
-            <ul>
-              <li><%= link_to 'Logout', logout_path, method: :delete %></li>
-            </ul>
-          </li>
+  <ul>
+    <% if logged_in? %>
+      <h1><%= current_user.name %>さんのTasklist</h1>
+        <ul>
+          <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+        </ul>
         <% else %>  
-        <li><%= link_to 'Signup', signup_path, class: 'nav-link' %></li>
-        <li><%= link_to 'Login', login_path, class: 'nav-link' %></li>
-      </ul>
-      <% end %>
+        <ul>  
+          <li><%= link_to 'Signup', signup_path %></li>
+          <li><%= link_to 'Login', login_path %></li>
+        </ul>
+    <% end %>
 </header>
